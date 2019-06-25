@@ -3,7 +3,12 @@ const Schema = mongoose.Schema;
 
 const shitSchema = new Schema({
   item: { type: String, required: true },
-  type: { type: String, required: true },
+  // type: { type: String, required: true },
+  importance: { type: Number, required: true},
+  sentiment: { type: Number, required: true},
+  usefulness: { type: Number, required: true},
+  replaceable: { type: Number, required: true},
+  danger: { type: Number, required: true},
   journal: String,
   date: { type: Date, default: Date.now }
 });

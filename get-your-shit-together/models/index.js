@@ -1,3 +1,4 @@
 module.exports = {
-  Shit: require("./shit")
+  Shit: require("./shit"),
+  Users: require("./users")
 };

@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from "react";
 // import logo from "../logo.svg";
 import * as Survey from "survey-react";

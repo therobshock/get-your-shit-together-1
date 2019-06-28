@@ -30,14 +30,16 @@ const DashBody = () => (
                     </div>
                 </div> 
                 <div class="row pastEntries">
-                    <div class="col-lg-6 shitlist">
+                    <div class="col-lg-6">
                     <h3>The Shit List</h3>
+                    <div class="shitlist"></div>
                     <p>Cat Panties<br />
                     Raccoon Parts<br />
                     Fuzzy Dice<br /></p>
                     </div>
                     <div class="col-lg-6">
                     <h3>Shit Talk</h3>
+                    <div class="shittalk"></div>
                     <p>WHy is this happening now?<br />
                     Santa Brought me Corndogs<br />
                     Fuzzy Dice, I love you<br /></p>

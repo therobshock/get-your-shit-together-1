@@ -77,21 +77,21 @@ class App extends Component {
             }
           } />
           <Route path="/add-shit" exact render={
-            () => {
-              return (<div><Nav /><Header /> <h1>Add Your 💩</h1> <ItemQuestions />
-                <div id="yourScore"></div></div>
-              )
-            }
-          } />
+          ()=> {
+            return (<div><Nav /><Header /> <div className="itemQuestDiv"><h1 className="surveyTitle">Add Your 💩</h1><p class="questInstructions">Just fill out this quick form to add an item you want to get rid of. </p> <ItemQuestions /><div id="yourScore"></div></div>
+                    </div>
+            )
+          }
+          }/>
           <Route path="/journal" exact render={
-            () => {
-              return (<div><Nav /><Header /><h1>Talk About Your 💩</h1><JournalQs /> <Footer />
-
-              </div>
-              )
-            }
-          } />
-        </div>
+          ()=> {
+            return (<div><Nav /><Header /><div class="journalDiv"><h1>Talk About Your 💩</h1><JournalQs /> <Footer /></div>
+              
+          </div>
+            )
+          }
+          }/>
+      </div>
       </Router>
     );
   }

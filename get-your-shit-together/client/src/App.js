@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as Survey from "survey-react";
+import API from "./utils/API";
 
 import {BrowserRouter as Router} from "react-router-dom";
 import Route from "react-router-dom/Route";
@@ -46,6 +47,62 @@ widgets.autocomplete(Survey, $);
 widgets.bootstrapslider(Survey);
 
 class App extends Component {
+
+  state = {
+    shit: [],
+    item: "",
+    importance: "",
+    sentiment: "",
+    usefulness: "",
+    replaceable: "",
+    danger: "",
+    rating: "",
+    journal: ""
+  };
+
+  componentDidMount() {
+    console.log("Mounted");
+  };
+
+  loadShit = () => {
+    API.getShit()
+      .then(res =>
+        this.setState({ shit: res.data, item: "", type: "", journal: "" })
+      )
+      .catch(err => console.log(err));
+  };
+
+  deleteShit = id => {
+    API.deleteShit(id)
+      .then(res => this.loadShit())
+      .catch(err => console.log(err));
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.item && this.state.type) {
+      API.saveShit({
+        item: this.state.item,
+        importance: this.state.importance,
+        sentiment: this.state.sentiment,
+        usefulness: this.state.usefulness,
+        replaceable: this.state.replaceable,
+        danger: this.state.danger,
+        rating: this.state.rating,
+        journal: this.state.journal
+      })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
+  };
+
 
   render() {
     Survey.Survey.cssType = "bootstrap";

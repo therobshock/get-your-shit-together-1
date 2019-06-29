@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from "react";
 // import logo from "../logo.svg";
 import * as Survey from "survey-react";
+import API from "../utils/API"
 
 
 export class ItemQuestions extends Component  {
@@ -51,6 +52,8 @@ export class ItemQuestions extends Component  {
     ],
     "showCompletedPage": false
    }
+
+
    
   
    //Define a callback methods on survey complete
@@ -71,6 +74,19 @@ export class ItemQuestions extends Component  {
     var totalOfQuestionScores = q1 + q2 + q3 + q5 + q6;
     var averageOfQuestions = totalOfQuestionScores / 5;
     console.log("Average" + averageOfQuestions);
+
+    API.saveShit({
+      item: survey.data.itemname,
+      importance: q1,
+      sentiment: q2,
+      usefulness: q3,
+      replaceable: q5,
+      danger: q6,
+      journal: survey.data.question7,
+      rating: averageOfQuestions
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
 
     document.getElementById("yourScore").innerHTML = "<p class='ratingaverage'>Your score for <strong>" + survey.data.itemname + "</strong> is " + averageOfQuestions +"</h3>";
     

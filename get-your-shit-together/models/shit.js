@@ -9,7 +9,8 @@ const shitSchema = new Schema({
   usefulness: { type: Number, required: true},
   replaceable: { type: Number, required: true},
   danger: { type: Number, required: true},
-  journal: String,
+  journal: { type: String},
+  rating: { type: Number },
   date: { type: Date, default: Date.now }
 });
 

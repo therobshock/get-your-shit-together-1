@@ -75,6 +75,8 @@ export class ItemQuestions extends Component  {
     var averageOfQuestions = totalOfQuestionScores / 5;
     console.log("Average" + averageOfQuestions);
 
+    document.getElementById("yourScore").innerHTML = "<p class='ratingaverage'>Your score for <strong>" + survey.data.itemname + "</strong> is " + averageOfQuestions +"</h3>";
+
     API.saveShit({
       item: survey.data.itemname,
       importance: q1,
@@ -87,10 +89,6 @@ export class ItemQuestions extends Component  {
     })
       .then(res => console.log(res))
       .catch(err => console.log(err));
-
-    document.getElementById("yourScore").innerHTML = "<p class='ratingaverage'>Your score for <strong>" + survey.data.itemname + "</strong> is " + averageOfQuestions +"</h3>";
-    
-
 
    }
    render() {

@@ -7,11 +7,11 @@ const JournalQs = () => (
     
         <div>
             <form>
-                        <div class="form-group">
-                        <input class="form-control" type="text" placeholder="What do you want to talk about?"></input>
+                        <div className="form-group">
+                        <input className="form-control" type="text" placeholder="What do you want to talk about?"></input>
                             
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type your journal entry here."></textarea>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type your journal entry here."></textarea>
+                            <button type="submit" className="btn btn-primary">Submit</button>
                         </div>
             </form>
             <div id="pastJournals"><h3>Past journal entries</h3></div>

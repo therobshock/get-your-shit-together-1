@@ -3,7 +3,7 @@ const shitRoutes = require("./shit");
 const userRoutes = require("./user")
 
 // Shit routes
-router.use("/shits", shitRoutes);
-router.use("/users", userRoutes);
+router.use("/shit", shitRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;

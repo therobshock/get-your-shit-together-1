@@ -18,15 +18,6 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/getyourshittogether");
 
-// const { router: usersRouter } = require('./routes/api/user');
-
-
-/* app.get("/test", (req, res) => {
-  console.log("Test");
-}); */
-
-// app.use("/api/users/", usersRouter);
-
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

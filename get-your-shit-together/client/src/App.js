@@ -62,12 +62,22 @@ class App extends Component {
 
   componentDidMount() {
     console.log("Mounted");
+    this.loadShit();
   };
 
   loadShit = () => {
     API.getShit()
       .then(res =>
-        this.setState({ shit: res.data, item: "", type: "", journal: "" })
+        this.setState({ 
+          shit: res.data, 
+          item: "", 
+          importance: "",
+          sentiment: "",
+          usefulness: "",
+          replaceable: "",
+          danger: "",
+          rating: "",
+          journal: "" })
       )
       .catch(err => console.log(err));
   };
@@ -115,7 +125,12 @@ class App extends Component {
 
           <Route path="/dashboard" exact render={
             () => {
-              return (<div><Nav /><Header /><DashBody /></div>)
+              return (
+              <div>
+                <Nav />
+                <Header />
+                <DashBody shit={this.state.shit} />
+              </div>)
             }
           } />
 

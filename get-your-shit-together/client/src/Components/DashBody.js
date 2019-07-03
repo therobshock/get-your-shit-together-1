@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 // import logo from "../logo.svg";
 import "./Compstyles/Dashbodystyle.css";
 
-const DashBody = () => (
+
+const DashBody = (props) => (
 
     <div className="container dashbody">
         <div className="row blankrow">
@@ -30,9 +31,11 @@ const DashBody = () => (
             <div className="col-lg-6">
                 <h3>The $#!T List</h3>
                 <div className="shitlist"></div>
-                <p>Cat Panties<br />
-                    Raccoon Parts<br />
-                    Fuzzy Dice<br /></p>
+                <ul className="list-group">
+                  {props.shit.map(shit => (
+                    <li className="list-group-item" key={shit._id}>{shit.item}</li>
+                  ))}
+                </ul>
             </div>
             <div className="col-lg-6">
                 <h3>$#!T Talk</h3>

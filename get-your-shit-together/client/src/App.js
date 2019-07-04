@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import * as Survey from "survey-react";
-import API from "./utils/API";
-
-import {BrowserRouter as Router} from "react-router-dom";
-import Route from "react-router-dom/Route";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import "survey-react/survey.css";
 // import SurveyCreator from "./SurveyCreator";
 import ItemQuestions from "./Components/ItemQuestions";
@@ -48,73 +45,7 @@ widgets.bootstrapslider(Survey);
 
 class App extends Component {
 
-  state = {
-    shit: [],
-    item: "",
-    importance: "",
-    sentiment: "",
-    usefulness: "",
-    replaceable: "",
-    danger: "",
-    rating: "",
-    journal: ""
-  };
-
-  componentDidMount() {
-    console.log("Mounted");
-    this.loadShit();
-  };
-
-  loadShit = () => {
-    API.getShit()
-      .then(res =>
-        this.setState({ 
-          shit: res.data, 
-          item: "", 
-          importance: "",
-          sentiment: "",
-          usefulness: "",
-          replaceable: "",
-          danger: "",
-          rating: "",
-          journal: "" })
-      )
-      .catch(err => console.log(err));
-  };
-
-  deleteShit = id => {
-    API.deleteShit(id)
-      .then(res => this.loadShit())
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.item && this.state.type) {
-      API.saveShit({
-        item: this.state.item,
-        importance: this.state.importance,
-        sentiment: this.state.sentiment,
-        usefulness: this.state.usefulness,
-        replaceable: this.state.replaceable,
-        danger: this.state.danger,
-        rating: this.state.rating,
-        journal: this.state.journal
-      })
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-    }
-  };
-
-
-  render() {
+   render() {
     Survey.Survey.cssType = "bootstrap";
     var model = new Survey.Model(this.json);
     return (
@@ -129,7 +60,7 @@ class App extends Component {
               <div>
                 <Nav />
                 <Header />
-                <DashBody shit={this.state.shit} />
+                <DashBody />
               </div>)
             }
           } />

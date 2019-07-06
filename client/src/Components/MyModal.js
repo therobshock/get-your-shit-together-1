@@ -25,20 +25,20 @@ export default class MyModal extends Component {
     return (
       <>
         <Button variant="primary" onClick={this.handleShow}>
-          Launch demo modal
+          Login
         </Button>
 
         <Modal show={this.state.show} onHide={this.handleClose} animation={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>Login to Get Your $#!T Together</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>Insert Login Table Here</Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Close
-            </Button>
             <Button variant="primary" onClick={this.handleClose}>
-              Save Changes
+              Login
+            </Button>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Cancel
             </Button>
           </Modal.Footer>
         </Modal>

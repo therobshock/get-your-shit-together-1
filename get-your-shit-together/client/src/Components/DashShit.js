@@ -17,8 +17,8 @@ export function ShitItem ({children}) {
 
 export function DeleteBtn(props) {
   return (
-    <span className="delete-btn" {...props} role="button" tabIndex="0">
-      ✗
+    <span className="delete-btn" {...props} role="button" tabIndex="0" role="img" alt="X">
+      💩
     </span>
   );
 }

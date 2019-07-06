@@ -19,11 +19,13 @@ class DashBody extends Component {
     journal: ""
   };
 
+  // Loads items into Shit List when Dashboard mounted
   componentDidMount() {
     console.log("Mounted");
     this.loadShit();
   };
 
+  // API function to get items from database
   loadShit = () => {
     API.getShit()
       .then(res =>
@@ -41,6 +43,7 @@ class DashBody extends Component {
       .catch(err => console.log(err));
   };
 
+  // API function to delete one item from list
   deleteShit = id => {
     API.deleteShit(id)
       .then(res => this.loadShit())
@@ -59,11 +62,14 @@ class DashBody extends Component {
           <div className="row pastEntries">
             <div className="col-lg-6">
               <h3>The $#!T List</h3>
+              <p>Take care of this $#!t first</p>
               <Shit>
                 {this.state.shit.map(shit => (
                   <ShitItem key={shit._id}>
-                    <strong>{shit.item}</strong>
-                    <DeleteBtn onClick={() => this.deleteShit(shit._id)} />
+                    
+                      <span>Item: <strong>{shit.item}</strong> | </span><span>Rating: <strong>{shit.rating}</strong> | </span>
+                    
+                    <DeleteBtn aria-label="delete" onClick={() => this.deleteShit(shit._id)} />
                   </ShitItem>
                 ))}
               </Shit>

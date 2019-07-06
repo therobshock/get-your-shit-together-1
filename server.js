@@ -20,8 +20,8 @@ mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost/getyourshittogether")
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
-  
+
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });

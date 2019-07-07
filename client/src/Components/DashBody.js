@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Compstyles/Dashbodystyle.css";
 import { Link } from "react-router-dom";
 import { Welcome } from "./DashWelcome";
-import { Shit, ShitItem, DeleteBtn } from "./DashShit";
+import { Shit, ShitItem } from "./DashShit";
 import API from "../utils/API";
 
 class DashBody extends Component {
@@ -68,8 +68,14 @@ class DashBody extends Component {
                     <Link to={"/shit/" + shit._id}>
                       <span>Item: <strong>{shit.item}</strong> | </span><span>Rating: <strong>{shit.rating}</strong> | </span>
                     </Link>
-                    <DeleteBtn onClick={() => this.deleteShit(shit._id)} style={ {cursor: "pointer"} } />
-                  </ShitItem>
+                    <button
+                      type="delete"
+                      title="Delete $#!T"
+                      onClick={() => this.deleteShit(shit._id)}
+                    >
+                      <span role="img" alt="X" aria-label="poo">💩</span>
+                    </button>
+                    </ShitItem>
                 ))}
               </Shit>
                 ) : (

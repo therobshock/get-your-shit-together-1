@@ -4,8 +4,7 @@ import * as Survey from "survey-react";
 Survey.Survey.cssType = "bootstrap";
 
 const JournalQs = () => (
-    
-        <div>
+  <div className="journalDiv"><h1>Talk About Your $#!T</h1>       
             <form>
                         <div className="form-group">
                         <input className="form-control" type="text" placeholder="What do you want to talk about?"></input>
@@ -15,7 +14,7 @@ const JournalQs = () => (
                         </div>
             </form>
             <div id="pastJournals"><h3>Past journal entries</h3></div>
-        </div>
+  </div>
     
        
 

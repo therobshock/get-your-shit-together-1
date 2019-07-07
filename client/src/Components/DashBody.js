@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Compstyles/Dashbodystyle.css";
-import {Welcome} from "./DashWelcome";
-import {Shit, ShitItem, DeleteBtn} from "./DashShit";
+import { Link } from "react-router-dom";
+import { Welcome } from "./DashWelcome";
+import { Shit, ShitItem, DeleteBtn } from "./DashShit";
 import API from "../utils/API";
 
 class DashBody extends Component {
@@ -59,14 +60,21 @@ class DashBody extends Component {
           <div className="row pastEntries">
             <div className="col-lg-6">
               <h3>The $#!T List</h3>
-              <Shit>
+              <p>Deal with this $#!t first...</p>
+              {this.state.shit.length ? (
+                <Shit>
                 {this.state.shit.map(shit => (
                   <ShitItem key={shit._id}>
-                    <strong>{shit.item}</strong>
-                    <DeleteBtn onClick={() => this.deleteShit(shit._id)} />
+                    <Link to={"/shit/" + shit._id}>
+                      <span>Item: <strong>{shit.item}</strong> | </span><span>Rating: <strong>{shit.rating}</strong> | </span>
+                    </Link>
+                    <DeleteBtn onClick={() => this.deleteShit(shit._id)} style={ {cursor: "pointer"} } />
                   </ShitItem>
                 ))}
               </Shit>
+                ) : (
+                <h3>No $#!T to Show For</h3>
+                )}
             </div>
             <div className="col-lg-6">
               <h3>$#!T Talk</h3>

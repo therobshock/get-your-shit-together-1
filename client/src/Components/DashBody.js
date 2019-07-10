@@ -4,6 +4,7 @@ import "./Compstyles/Dashbodystyle.css";
 import { Link } from "react-router-dom";
 import { Welcome } from "./DashWelcome";
 import { Shit, ShitItem } from "./DashShit";
+import JournalList from "./JournalList";
 import API from "../utils/API";
 
 class DashBody extends Component {
@@ -17,12 +18,16 @@ class DashBody extends Component {
     replaceable: "",
     danger: "",
     rating: "",
-    journal: ""
+    journal: "",
+    journals: [],
+    title: "",
+    entry: ''
   };
 
   componentDidMount() {
     console.log("Mounted");
     this.loadShit();
+    this.loadJournal();
   };
 
   loadShit = () => {
@@ -47,7 +52,18 @@ class DashBody extends Component {
       .then(res => this.loadShit())
       .catch(err => console.log(err));
   };
- 
+
+  loadJournal = () => {
+    API.getJournals()
+      .then(res => 
+        this.setState({
+          journal: res.data,
+          title: "",
+          entry: ""
+        }))
+      .catch(err => console.log(err));
+  };
+
   render () {
     return (
       <div className="container dashbody">
@@ -85,15 +101,12 @@ class DashBody extends Component {
             <div className="col-lg-6">
               <h3>$#!T Talk</h3>
               <div className="shittalk">
-                <p>Why is this happening now?<br />
-                    Santa Brought me Corndogs<br />
-                    Fuzzy Dice, I love you<br /></p>
+                <JournalList />
               </div>
             </div>
           </div>
-          <div id="footer" className="animated bounceInUp bounce">
-          </div>
-      </div>
+            <div style={{height: 200}}></div>
+       </div>
     );
   }
 };

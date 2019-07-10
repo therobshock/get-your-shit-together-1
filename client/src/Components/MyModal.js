@@ -32,14 +32,26 @@ export default class MyModal extends Component {
           <Modal.Header closeButton>
             <Modal.Title>Login to Get Your $#!T Together</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Insert Login Table Here</Modal.Body>
+
+          <Modal.Body>
+            <form>
+              <label>
+                Username
+    <input type="text" name="test" />
+              </label>
+              <label>
+                Password
+    <input type="text" name="test" />
+              </label>
+            </form>
+          </Modal.Body>
+
           <Modal.Footer>
+            <Button href="/dashboard" variant="primary">Login</Button>
+
             <Button variant="primary" onClick={this.handleClose}>
-              Login
-            </Button>
-            <Button variant="secondary" onClick={this.handleClose}>
               Cancel
-            </Button>
+              </Button>
           </Modal.Footer>
         </Modal>
       </>

@@ -56,66 +56,66 @@ class JournalQs extends Component {
   render() {
   return (
   <div className="journalDiv"><h1>Talk About Your $#!T</h1>       
-            <form>
-                        <div className="form-group">
-                        <input 
-                          className="form-control" 
-                          type="text"
-                          name="title" 
-                          placeholder="What do you want to talk about?"
-                          value={this.state.title}
-                          onChange={this.handleInputChange}                         
-                        />
-                            
-                            <textarea 
-                              className="form-control" 
-                              id="exampleFormControlTextarea1" 
-                              name="entry"
-                              rows="3" 
-                              placeholder="Type your journal entry here." 
-                              value={this.state.entry}
-                              onChange={this.handleInputChange}
-                            />
-                            <button 
-                              type="submit" 
-                              className="btn btn-primary"
-                              disabled={!this.state.title && this.state.entry}
-                              onClick={this.handleFormSubmit}
-                            >
-                              Submit
-                            </button>
-                        </div>
-            </form>
-            <div id="pastJournals">
-              <h3>Past journal entries</h3>
-              <hr />
-              {!this.state.journal.length ? (
-                <h4>You haven't said $#!T</h4>
-              ) : (
-                <div>
-                {this.state.journal.map(journal => (
-                  <div key={journal._id}>
-                    <h4>Title: {journal.title}</h4>
-                    <p>Date: 
-                      <Moment format="MM/DD/YYYY">
-                        {journal.date}
-                      </Moment>
-                    </p>
-                    <p>Entry: {journal.entry}</p>
-                    <button
-                      type="delete"
-                      title="Delete $#!T"
-                      onClick={() => this.deleteJournal(journal._id)}
-                    >
-                      <span role="img" alt="X" aria-label="poo">💩</span>
-                    </button>
-                    <hr />
-                  </div>
-                ))}
-                </div>
-              )}
-            
-            </div>
+    <form>
+      <div className="form-group">
+      <input 
+        className="form-control" 
+        type="text"
+        name="title" 
+        placeholder="What do you want to talk about?"
+        value={this.state.title}
+        onChange={this.handleInputChange}                         
+      />
+          
+          <textarea 
+            className="form-control" 
+            id="exampleFormControlTextarea1" 
+            name="entry"
+            rows="3" 
+            placeholder="Type your journal entry here." 
+            value={this.state.entry}
+            onChange={this.handleInputChange}
+          />
+          <button 
+            type="submit" 
+            className="btn btn-primary"
+            disabled={!this.state.title && this.state.entry}
+            onClick={this.handleFormSubmit}
+          >
+            Submit
+          </button>
+      </div>
+    </form>
+    <div id="pastJournals">
+      <h3>Past journal entries</h3>
+      <hr />
+      {!this.state.journal.length ? (
+        <h4>You haven't said $#!T</h4>
+      ) : (
+        <div>
+        {this.state.journal.map(journal => (
+          <div key={journal._id}>
+            <h4>Title: {journal.title}</h4>
+            <p>Date: 
+              <Moment format="MM/DD/YYYY">
+                {journal.date}
+              </Moment>
+            </p>
+            <p>Entry: {journal.entry}</p>
+            <button
+              type="delete"
+              title="Delete $#!T"
+              onClick={() => this.deleteJournal(journal._id)}
+            >
+              <span role="img" alt="X" aria-label="poo">💩</span>
+            </button>
+            <hr />
+          </div>
+        ))}
+        </div>
+      )}
+    </div>
+    <div style={{height: 100}}></div>
   </div>
 
 )};
